@@ -1,0 +1,22 @@
+# System-wide .profile for sh(1)
+
+alias ed='open -a /Applications/TextEdit.app'
+
+export HADOOP_HOME=/Users/doma/tools/hadoop-2.4.0 
+export T=/opt/local/share/java/tomcat6
+export ANDROID_SDK=/opt/android-sdk
+export ANDROID_NDK=/opt/android-ndk
+export JAVA_HOME=`/usr/libexec/java_home -v 1.6`
+export MAVEN_OPTS="-XX:PermSize=500m -XX:MaxPermSize=800m -Xmx2g -Djavax.net.ssl.keyStore=$HOME/.keystore -Djavax.net.ssl.keyStorePassword=password -Djavax.net.ssl.trustStore=$JAVA_HOME/jre/lib/security/cacerts -Djavax.net.ssl.trustStorePassword=changeit"
+export M2_HOME=/opt/local/share/java/apache-maven-3.1.1
+#export M2_HOME=/opt/local/share/java/maven32/
+export KARAF_HOME=/opt/karaf
+export PATH=$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$M2_HOME/bin:$JAVA_HOME/bin:$PATH:/opt/local/lib/postgresql92/bin:$KARAF_HOME/bin:/opt/local/bin:/Users/doma/tools/hadoop/sbin
+
+if [ -x /usr/libexec/path_helper ]; then
+	eval `/usr/libexec/path_helper -s`
+fi
+
+if [ "${BASH-no}" != "no" ]; then
+	[ -r /etc/bashrc ] && . /etc/bashrc
+fi
